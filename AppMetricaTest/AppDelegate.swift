@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YandexMobileMetrica
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupYandexMetrica()
         return true
+    }
+    
+    private func setupYandexMetrica() {
+        let yandexMetricaKey = "b879fa08-2fea-4b8e-bd6f-2e19253465e8"
+        if let configuration = YMMYandexMetricaConfiguration(apiKey: yandexMetricaKey) {
+            configuration.sessionsAutoTracking = true
+            configuration.appOpenTrackingEnabled = true
+            configuration.locationTracking = true
+            configuration.statisticsSending = true
+            YMMYandexMetrica.activate(with: configuration)
+        }
     }
 
     // MARK: UISceneSession Lifecycle

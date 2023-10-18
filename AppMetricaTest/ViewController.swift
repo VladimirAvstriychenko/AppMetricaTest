@@ -1,9 +1,3 @@
-//
-//  ViewController.swift
-//  AppMetricaTest
-//
-//  Created by Vladimir Avstriychenko on 18.10.2023.
-//
 
 import UIKit
 
@@ -14,6 +8,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func crashButtonTapped(_ sender: UIButton) {
+        let array = [0, 1, 2]
+        print(array[5])
+    }
+    
 }
 
